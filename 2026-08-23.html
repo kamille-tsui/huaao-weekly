@@ -2,28 +2,73 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
 <title>华鳌合金细分领域行业资讯周报（2026.08.17—08.23）</title>
 <style>
-  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;max-width:900px;margin:0 auto;padding:28px 32px;color:#1a1a1a;line-height:1.75;background:#fff;}
-  h1{font-size:1.6em;border-bottom:3px solid #c0392b;padding-bottom:.4em;color:#c0392b;}
-  h2{font-size:1.18em;color:#c0392b;margin-top:1.8em;border-left:5px solid #c0392b;padding-left:.6em;}
-  .meta{color:#888;font-size:.92em;margin-bottom:1.2em;}
-  .item{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:16px 20px;margin:14px 0;}
-  .item h3{margin:0 0 6px;font-size:1.05em;color:#222;}
-  .tag{display:inline-block;background:#c0392b;color:#fff;font-size:.75em;padding:2px 9px;border-radius:12px;margin-right:8px;}
-  .info{font-size:.88em;color:#555;margin:6px 0;}
+  :root{
+    --brand:#c0392b;
+    --brand-soft:#fbecea;
+    --ink:#1a1a1a;
+    --sub:#555;
+    --line:#eee;
+    --card:#fafafa;
+    --link:#2471a3;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    max-width:900px;margin:0 auto;
+    padding:max(16px,env(safe-area-inset-top)) 16px max(88px,env(safe-area-inset-bottom));
+    color:var(--ink);line-height:1.8;background:#fff;
+    font-size:15px;
+  }
+  h1{font-size:1.35em;border-bottom:3px solid var(--brand);padding-bottom:.4em;color:var(--brand);margin:.2em 0 .6em;line-height:1.35;}
+  h2{
+    font-size:1.08em;color:var(--brand);margin:1.6em 0 .8em;
+    border-left:5px solid var(--brand);padding-left:.6em;
+    display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;
+    background:var(--brand-soft);border-radius:0 8px 8px 0;padding-top:.5em;padding-bottom:.5em;padding-right:.6em;
+  }
+  h2 .toggle{font-size:.8em;color:var(--brand);transition:transform .25s;flex:none;margin-left:8px;}
+  h2.collapsed .toggle{transform:rotate(-90deg);}
+  .section{overflow:hidden;transition:max-height .35s ease;}
+  .meta{color:#888;font-size:.9em;margin-bottom:1em;background:#f7f7f7;border-radius:8px;padding:10px 12px;line-height:1.7;}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 14px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.02);}
+  .item h3{margin:0 0 8px;font-size:1.02em;color:#222;line-height:1.5;font-weight:700;}
+  .tag{display:inline-flex;align-items:center;background:var(--brand);color:#fff;font-size:.72em;padding:3px 10px;border-radius:12px;margin-right:8px;font-weight:600;white-space:nowrap;}
+  .info{font-size:.85em;color:var(--sub);margin:8px 0;line-height:1.7;}
   .info b{color:#333;}
-  .abstract{margin:8px 0;font-size:.95em;}
-  .link a{color:#2471a3;text-decoration:none;word-break:break-all;font-size:.88em;}
-  .link a:hover{text-decoration:underline;}
-  .note{font-size:.82em;color:#999;margin-top:2em;border-top:1px solid #eee;padding-top:1em;}
+  .abstract{margin:8px 0;font-size:.95em;color:#333;}
+  .link{margin-top:6px;}
+  .link a{
+    display:inline-flex;align-items:center;gap:4px;
+    color:var(--link);text-decoration:none;word-break:break-all;font-size:.88em;
+    background:#eef5fb;border-radius:8px;padding:6px 10px;width:100%;
+  }
+  .link a:hover,.link a:active{background:#e2eef8;text-decoration:none;}
+  .note{font-size:.82em;color:#999;margin-top:2em;border-top:1px solid var(--line);padding-top:1em;line-height:1.7;}
+  #topBtn{
+    position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));
+    width:44px;height:44px;border-radius:50%;border:none;background:var(--brand);color:#fff;
+    font-size:1.2em;cursor:pointer;display:none;align-items:center;justify-content:center;
+    box-shadow:0 3px 10px rgba(192,57,43,.35);z-index:99;
+  }
+  @media(min-width:640px){
+    body{padding:28px 32px 40px;font-size:16px;}
+    h1{font-size:1.6em;}
+    h2{font-size:1.18em;}
+    .item{padding:16px 20px;border-radius:8px;}
+  }
 </style>
 </head>
 <body>
 <h1>华鳌合金细分领域行业资讯周报</h1>
 <div class="meta">聚焦：高温合金 / 特种合金 / 母合金（含ODS粉末、高温合金铸件、增材制造粉末）<br>统计窗口：2026-08-17 — 2026-08-23｜共 7 条｜按分类 + 时间倒序排列</div>
 
-<h2>一、企业动态</h2>
+<h2 data-target="sec1">一、企业动态 <span class="toggle">▾</span></h2>
+<div class="section" id="sec1">
 <div class="item">
   <span class="tag">企业动态</span><h3>万泽股份2026H1高温合金业务营收2亿元同比+19.78%，燃机叶片海外突破</h3>
   <div class="info"><b>发布日期：</b>2026-08-23｜<b>来源：</b>新浪财经（券商半年报点评）｜<b>关键词：</b>高温合金；燃机叶片；安萨尔多；单晶叶片</div>
@@ -37,8 +82,10 @@
   <div class="abstract">8月17日，中超控股（002471）披露2026年8月15日投资者关系活动记录表。控股子公司上海中超航宇精铸（江苏精铸）高温合金精密铸件业务主要客户分布于燃气轮机领域，已进入中国航发燃机、青岛中科国晟、中船广瀚燃机等主机厂商供应商体系，并参与通用航空中小型发动机高温合金精密铸件研发，合作开发涡轮导向器及涡轮转子等。2026上半年江苏精铸实现收入2164.85万元，较上年同期962.04万元增幅125.03%，已超过2025年全年并实现盈利。受现有设备种类与数量限制，目前仅具备小批量供货能力，新厂房正在筹建，投产后将大幅提升精密铸件产能。AI算力爆发带动燃机需求激增叠加CJ-1000A航空发动机量产，为公司高温合金铸件业务打开广阔空间。</div>
   <div class="link">🔗 <a href="https://data.eastmoney.com/notices/detail/002471/AN202608171828054553.html" target="_blank" rel="noopener">原文链接</a></div>
 </div>
+</div>
 
-<h2>二、产能布局</h2>
+<h2 data-target="sec2">二、产能布局 <span class="toggle">▾</span></h2>
+<div class="section" id="sec2">
 <div class="item">
   <span class="tag">产能布局</span><h3>隆达股份马来西亚5万吨基地年底投产，年内新增3000吨变形高温合金产能</h3>
   <div class="info"><b>发布日期：</b>2026-08-18｜<b>来源：</b>同花顺财经｜<b>关键词：</b>变形高温合金；铸造高温合金母合金；马来西亚基地；产能扩张</div>
@@ -59,8 +106,10 @@
   <div class="abstract">8月18日提交施工图审查、8月19日披露的江苏振世特种合金年产1.2万吨镍基、钛基、钴基高温合金材料及制品项目，覆盖航空发动机、燃气轮机、火箭发动机热端部件核心材料，也是高温合金粉末雾化制粉的母材来源。1.2万吨母材产能落地将缓解高端粉末"母材受制"瓶颈，降低GH4169、GH3536等高温合金粉的原料成本，中长期利好粉末采购议价与交付稳定。该项目的母材定位与华鳌合金"再生资源→高端母合金"的产业链环节直接对应。</div>
   <div class="link">🔗 <a href="http://mp.weixin.qq.com/s?src=11&timestamp=1787536129&ver=6923&signature=6Y-o5nPItiqkYij2Tt17bGPDIKLcCrX9QbBCI9Z1wRkgBOeHNj68*CyBcrWYs3nZ2-V5J*Ud0GICy-ZWVhpd24RtLuXLT77GRMBg01wd2BIe7LJQ*gJkPnvdHVBcVJhq&new=1" target="_blank" rel="noopener">原文链接</a></div>
 </div>
+</div>
 
-<h2>三、市场动态</h2>
+<h2 data-target="sec3">三、市场动态 <span class="toggle">▾</span></h2>
+<div class="section" id="sec3">
 <div class="item">
   <span class="tag">市场动态</span><h3>全球燃气轮机需求攀升、产业链企业"出海"提速，万泽燃机叶片订单覆盖2—480MW</h3>
   <div class="info"><b>发布日期：</b>2026-08-22｜<b>来源：</b>中国经济网｜<b>关键词：</b>燃气轮机；高温合金；燃机叶片；出海</div>
@@ -74,13 +123,16 @@
   <div class="abstract">8月23日央广网报道，国内燃机产业链加速出海：杰瑞股份自2025年11月累计燃机订单超31亿美元；博盈特焊越南基地余热锅炉（HRSG）满产交付；万泽股份覆盖2—480MW燃机叶片订单。西门子能源在海南洋浦建设中国首个燃机总装基地及服务中心，7000F培训燃机已落地，成为全球唯一燃机技术专家培训中心。"十五五"规划明确"加快重型燃气轮机国产化"。核心影响材料为GH4169（涡轮盘/转子）、GH3536（燃烧室）、Inconel 625（热端部件），高温合金热端材料需求确定性极强，国产化与出海双轮驱动。</div>
   <div class="link">🔗 <a href="http://mp.weixin.qq.com/s?src=11&timestamp=1787536130&ver=6923&signature=SuZEQjP0VPHNf9-PzokIU-fdTCaYgluU4Xe9TFVxI4k9i*dR*qfW2tuzwcxv0sffOqA01zzTIZWVCWiedhrmsQqldQXcH9Nv4C8WhXk3*1ukpiEt4UT*y*w1NIYYZ55v&new=1" target="_blank" rel="noopener">原文链接</a></div>
 </div>
+</div>
 
-<h2>四、技术进展</h2>
+<h2 data-target="sec4">四、技术进展 <span class="toggle">▾</span></h2>
+<div class="section" id="sec4">
 <div class="item">
   <span class="tag">技术进展</span><h3>万泽股份管理层讨论：承接燃机单晶涡轮叶片与航发高代次单晶叶片研发</h3>
   <div class="info"><b>发布日期：</b>2026-08-21｜<b>来源：</b>证券之星（上市公司2026年半年度管理层讨论与分析）｜<b>关键词：</b>单晶涡轮叶片；高代次单晶合金；精密铸造；粉末冶金</div>
   <div class="abstract">8月21日，证券之星披露万泽股份（000534）2026年半年度管理层讨论与分析。报告期内，万泽航空科技新承接燃气轮机某铸造新技术研发及应用项目，拟通过掌握关键环节核心知识产权实现燃气轮机单晶涡轮叶片自主制造，为国内燃气轮机自主研发单位赋能，打破欧美国家对高性能重型燃气轮机的垄断；同时新承接航空发动机某型叶片关键技术研发项目，拟率先生产国内急需的高代次单晶合金叶片。上海万泽、深汕万泽两大生产基地高温合金专项技术改造项目稳步推进，多轮生产工艺优化有效提升精密铸造、粉末冶金产品线成品良率、降低损耗。单晶叶片是高温合金国产化"最硬卡脖子"环节（国产化率&lt;25%），该研发动向对母合金及精铸产业链具有直接示范意义。</div>
   <div class="link">🔗 <a href="https://wap.stockstar.com/detail/RB2026082100013257" target="_blank" rel="noopener">原文链接</a></div>
+</div>
 </div>
 
 <div class="note">
@@ -88,5 +140,25 @@
   <b>资讯来源均为公开权威渠道：</b>新浪财经、证券之星、中国经济网、同花顺财经、东方财富、全景网投资者关系互动平台、《特种钢》期刊、不锈钢及特种合金联盟、PowderSight等。<br>
   ⚠️ 本报告仅供行业研究参考，不构成任何投资建议；价格与产能数据以各机构最新公告为准。
 </div>
+
+<button id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+  document.querySelectorAll('h2[data-target]').forEach(function(h2){
+    h2.addEventListener('click', function(){
+      var id=this.getAttribute('data-target');
+      var sec=document.getElementById(id);
+      if(!sec) return;
+      var collapsed=sec.style.display==='none';
+      sec.style.display=collapsed?'':'none';
+      this.classList.toggle('collapsed',!collapsed);
+    });
+  });
+  var topBtn=document.getElementById('topBtn');
+  window.addEventListener('scroll',function(){
+    topBtn.style.display=window.scrollY>400?'flex':'none';
+  },{passive:true});
+  topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+</script>
 </body>
 </html>
